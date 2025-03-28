@@ -56,8 +56,8 @@ extension libwebp
 
 	// Note: forward declaring enumerations is not allowed in (strict) C and C++,
 	// the types are left here for reference.
-	// public enum WebPDemuxState WebPDemuxState;
-	// public enum WebPFormatFeature WebPFormatFeature;
+	// public enum WebPDemuxState WebPDemuxState; : c_int
+	// public enum WebPFormatFeature WebPFormatFeature; : c_int
 	public struct WebPDemuxer;
 	// typedef struct WebPIterator WebPIterator;
 	// typedef struct WebPChunkIterator WebPChunkIterator;
@@ -73,7 +73,7 @@ extension libwebp
 	//------------------------------------------------------------------------------
 	// Life of a Demux object
 
-	public enum WebPDemuxState
+	public enum WebPDemuxState : c_int
 	{
 		WEBP_DEMUX_PARSE_ERROR    = -1, // An error occurred while parsing.
 		WEBP_DEMUX_PARSING_HEADER =  0, // Not enough data to parse full header.
@@ -110,7 +110,7 @@ extension libwebp
 	//------------------------------------------------------------------------------
 	// Data/information extraction.
 
-	public enum WebPFormatFeature
+	public enum WebPFormatFeature : c_int
 	{
 		WEBP_FF_FORMAT_FLAGS, // bit-wise combination of WebPFeatureFlags
 								  // corresponding to the 'VP8X' chunk (if present).

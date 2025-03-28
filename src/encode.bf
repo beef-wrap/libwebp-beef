@@ -54,7 +54,7 @@ extension libwebp
 	// Coding parameters
 
 	// Image characteristics hint for the underlying encoder.
-	public enum WebPImageHint
+	public enum WebPImageHint : c_int
 	{
 		WEBP_HINT_DEFAULT = 0, // default preset.
 		WEBP_HINT_PICTURE, // digital picture, like portrait, inner shot
@@ -127,7 +127,7 @@ extension libwebp
 
 	// Enumerate some predefined settings for WebPConfig, depending on the type
 	// of source picture. These presets are used when calling WebPConfigPreset().
-	public enum WebPPreset
+	public enum WebPPreset : c_int
 	{
 		WEBP_PRESET_DEFAULT = 0, // default preset.
 		WEBP_PRESET_PICTURE, // digital picture, like portrait, inner shot
@@ -240,7 +240,7 @@ extension libwebp
 
 	// Color spaces.
 	[AllowDuplicates]
-	public enum WebPEncCSP
+	public enum WebPEncCSP : c_int
 	{
 		// chroma sampling
 		WEBP_YUV420  = 0, // 4:2:0
@@ -250,7 +250,7 @@ extension libwebp
 	}
 
 // Encoding error conditions.
-	public enum WebPEncodingError
+	public enum WebPEncodingError : c_int
 	{
 		VP8_ENC_OK = 0,
 		VP8_ENC_ERROR_OUT_OF_MEMORY, // memory error allocating objects

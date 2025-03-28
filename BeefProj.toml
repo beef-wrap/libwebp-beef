@@ -5,8 +5,7 @@ Name = "libwebp-beef"
 DefaultNamespace = "libwebp"
 
 [Configs.Debug.Win64]
-CLibType = "DynamicDebug"
-LibPaths = ["$(ProjectDir)\\libs\\debug\\libwebp.lib", "$(ProjectDir)\\libs\\debug\\libsharpyuv.lib"]
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\libwebp_d.lib", "$(ProjectDir)\\libs\\windows\\x64\\libsharpyuv_d.lib"]
 
 [Configs.Release.Win64]
-LibPaths = ["$(ProjectDir)\\libs\\release\\libwebp.lib", "$(ProjectDir)\\libs\\release\\libsharpyuv.lib"]
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\libwebp.lib", "$(ProjectDir)\\libs\\windows\\x64\\libsharpyuv.lib"]

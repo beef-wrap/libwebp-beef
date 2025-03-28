@@ -59,13 +59,13 @@ extension libwebp
 
 	const c_int TRANSFORM_PRESENT            = 1; // The bit to be written when next data to be read is a transform.
 	const c_int NUM_TRANSFORMS               = 4; // Maximum number of allowed transform in a bitstream.
-	public enum VP8LImageTransformType
+	public enum VP8LImageTransformType : c_int
 	{
 		PREDICTOR_TRANSFORM      = 0,
 		CROSS_COLOR_TRANSFORM    = 1,
 		SUBTRACT_GREEN_TRANSFORM = 2,
 		COLOR_INDEXING_TRANSFORM = 3
-	};
+	}
 
 	// Alpha related constants.
 	const c_int ALPHA_HEADER_LEN            = 1;

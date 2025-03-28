@@ -32,8 +32,8 @@ extension libwebp
 	
 	// Note: forward declaring enumerations is not allowed in (strict) C and C++,
 	// the types are left here for reference.
-	// public enum WebPMuxError WebPMuxError;
-	// public enum WebPChunkId WebPChunkId;
+	// enum WebPMuxError WebPMuxError;
+	// enum WebPChunkId WebPChunkId;
 	public struct WebPMux; // main opaque object.
 	
 	// typedef struct WebPMuxFrameInfo WebPMuxFrameInfo;
@@ -41,7 +41,7 @@ extension libwebp
 	// typedef struct WebPAnimEncoderOptions WebPAnimEncoderOptions;
 	
 	// Error codes
-	public enum WebPMuxError
+	public enum WebPMuxError : c_int
 	{
 		WEBP_MUX_OK                 =  1,
 		WEBP_MUX_NOT_FOUND          =  0,
@@ -52,7 +52,7 @@ extension libwebp
 	}
 
 	// IDs for different types of chunks.
-	public enum WebPChunkId
+	public enum WebPChunkId : c_int
 	{
 		WEBP_CHUNK_VP8X, // VP8X
 		WEBP_CHUNK_ICCP, // ICCP
@@ -183,7 +183,7 @@ extension libwebp
 		WebPMuxAnimDispose dispose_method; // Disposal method for the frame.
 		WebPMuxAnimBlend   blend_method; // Blend operation for the frame.
 		uint32_t[1]    pad; // padding for later use
-	};
+	}
 
 	// Sets the (non-animated) image in the mux object.
 	// Note: Any existing images (including frames) will be removed.
@@ -262,7 +262,7 @@ extension libwebp
 						   // Bits 16 to 23: Green.
 						   // Bits 24 to 31: Blue.
 		c_int loop_count; // Number of times to repeat the animation [0 = infinite].
-	};
+	}
 
 	// Sets the animation parameters in the mux object. Any existing ANIM chunks
 	// will be removed.

@@ -111,7 +111,7 @@ extension libwebp
 	// RGBA-4444: [b3 b2 b1 b0 a3 a2 a1 a0], [r3 r2 r1 r0 g3 g2 g1 g0], ...
 	// RGB-565: [g2 g1 g0 b4 b3 b2 b1 b0], [r4 r3 r2 r1 r0 g5 g4 g3], ...
 
-	public enum WEBP_CSP_MODE
+	public enum WEBP_CSP_MODE : c_int
 	{
 		MODE_RGB = 0, MODE_RGBA = 1,
 		MODE_BGR = 2, MODE_BGRA = 3,
@@ -152,7 +152,7 @@ extension libwebp
 		uint8_t* rgba; // pointer to RGBA samples
 		c_int stride; // stride in bytes from one scanline to the next.
 		size_t size; // total size of the *rgba buffer.
-	};
+	}
 
 	[CRepr]
 	public struct WebPYUVABuffer
@@ -167,7 +167,7 @@ extension libwebp
 		size_t y_size; // luma plane size
 		size_t u_size, v_size; // chroma planes size
 		size_t a_size; // alpha-plane size
-	};
+	}
 
 	// Output buffer
 	[CRepr]
@@ -189,7 +189,7 @@ extension libwebp
 		uint8_t* private_memory; // Internally allocated memory (only when
 									 // is_external_memory is 0). Should not be used
 									 // externally, but accessed via the buffer union.
-	};
+	}
 
 	// Internal, version-checked, entry point
 	[CLink] public static extern c_int WebPInitDecBufferInternal(WebPDecBuffer*, c_int);
@@ -208,7 +208,7 @@ extension libwebp
 	//------------------------------------------------------------------------------
 	// Enumeration of the status codes
 
-	public enum VP8StatusCode
+	public enum VP8StatusCode : c_int
 	{
 		VP8_STATUS_OK = 0,
 		VP8_STATUS_OUT_OF_MEMORY,
@@ -380,7 +380,7 @@ extension libwebp
 		c_int format; // 0 = undefined (/mixed), 1 = lossy, 2 = lossless
 
 		uint32_t[5] pad; // padding for later use
-	};
+	}
 
 	// Internal, version-checked, entry point
 	[CLink] public static extern VP8StatusCode WebPGetFeaturesInternal(uint8_t*, size_t, WebPBitstreamFeatures*, c_int);
@@ -422,7 +422,7 @@ extension libwebp
 		c_int alpha_dithering_strength; // alpha dithering strength in [0..100]
 
 		uint32_t[5] pad; // padding for later use
-	};
+	}
 
 	// Main object storing the configuration for advanced decoding.
 	[CRepr]
@@ -431,7 +431,7 @@ extension libwebp
 		WebPBitstreamFeatures input; // Immutable bitstream features (optional)
 		WebPDecBuffer output; // Output buffer (can point to external mem)
 		WebPDecoderOptions options; // Decoding options
-	};
+	}
 
 	// Internal, version-checked, entry point
 	[CLink] public static extern c_int WebPInitDecoderConfigInternal(WebPDecoderConfig*, c_int);

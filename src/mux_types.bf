@@ -19,7 +19,7 @@ namespace libwebp;
 extension libwebp
 {
   // VP8X Feature Flags.
-	public enum WebPFeatureFlags
+	public enum WebPFeatureFlags : c_int
 	{
 		ANIMATION_FLAG  = 0x00000002,
 		XMP_FLAG        = 0x00000004,
@@ -28,23 +28,23 @@ extension libwebp
 		ICCP_FLAG       = 0x00000020,
 
 		ALL_VALID_FLAGS = 0x0000003e
-	};
+	}
 
 	  // Dispose method (animation only). Indicates how the area used by the current
 	  // frame is to be treated before rendering the next frame on the canvas.
-	public enum WebPMuxAnimDispose
+	public enum WebPMuxAnimDispose : c_int
 	{
 		WEBP_MUX_DISPOSE_NONE, // Do not dispose.
 		WEBP_MUX_DISPOSE_BACKGROUND // Dispose to background color.
-	};
+	}
 
 	  // Blend operation (animation only). Indicates how transparent pixels of the
 	  // current frame are blended with those of the previous canvas.
-	public enum WebPMuxAnimBlend
+	public enum WebPMuxAnimBlend : c_int
 	{
 		WEBP_MUX_BLEND, // Blend.
 		WEBP_MUX_NO_BLEND // Do not blend.
-	};
+	}
 
 	  // Data type used to describe 'raw' data, e.g., chunk data
 	  // (ICC profile, metadata) and WebP compressed image data.
@@ -54,7 +54,7 @@ extension libwebp
 	{
 		uint8_t* bytes;
 		size_t size;
-	};
+	}
 
 	  // // Initializes the contents of the 'webp_data' object with default values.
 	  // static WEBP_INLINE void WebPDataInit(WebPData* webp_data) {
